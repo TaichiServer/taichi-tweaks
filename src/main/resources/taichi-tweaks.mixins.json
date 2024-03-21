@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.taichiserver.taichitweaks.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "ContainerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

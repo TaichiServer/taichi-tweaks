@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "taichi-tweaks",
+  "version": "${version}",
+  "name": "taichi-tweaks",
+  "description": "masa mods addition made for taichi SMP",
+  "authors": [
+    "topi_banana"
+  ],
+  "contact": {
+    "website": "https://github.com/TaichiServer/taichi-tweaks",
+    "repo": "https://github.com/topi/taichi-tweaks"
+  },
+  "license": "MIT",
+  "icon": "assets/taichi-tweaks/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.taichiserver.taichitweaks.TaichiTweaks"
+    ],
+    "main": [
+    ]
+  },
+  "mixins": [
+    "taichi-tweaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
