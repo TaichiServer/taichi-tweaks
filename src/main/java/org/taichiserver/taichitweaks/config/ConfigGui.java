@@ -86,6 +86,10 @@ public class ConfigGui extends GuiConfigsBase {
         {
             return ConfigOptionWrapper.createFor(Configs.Disables.OPTIONS);
         }
+        else if (tab == ConfigGuiTab.RENDERS)
+        {
+            return ConfigOptionWrapper.createFor(Configs.Renders.OPTIONS);
+        }
 
         return Collections.emptyList();
     }
@@ -117,7 +121,9 @@ public class ConfigGui extends GuiConfigsBase {
         GENERIC ("Generic"),
         HOTKEY  ("HotKey"),
         FIXES   ("Fix"),
-        DISABLES("Disable");
+        DISABLES("Disable"),
+
+        RENDERS("Renders");
 
         private final String translationKey;
 

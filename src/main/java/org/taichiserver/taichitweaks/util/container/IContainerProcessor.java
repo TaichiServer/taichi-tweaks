@@ -1,4 +1,4 @@
-package org.taichiserver.taichitweaks.util;
+package org.taichiserver.taichitweaks.util.container;
 
 import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
 import me.fallenbreath.tweakermore.impl.features.autoContainerProcess.processors.ProcessResult;

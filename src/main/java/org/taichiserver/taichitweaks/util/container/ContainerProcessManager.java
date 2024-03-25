@@ -1,4 +1,4 @@
-package org.taichiserver.taichitweaks.util;
+package org.taichiserver.taichitweaks.util.container;
 
 import com.google.common.collect.ImmutableList;
 import me.fallenbreath.tweakermore.impl.features.autoContainerProcess.AutoProcessableScreen;

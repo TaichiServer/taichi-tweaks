@@ -6,7 +6,10 @@
   "mixins": [
   ],
   "client": [
-    "ContainerMixin"
+    "ContainerMixin",
+    "autoVoidTrade.ClientPlayNetworkHandlerMixin",
+    "autoVoidTrade.MerchantScreenHandlerMixin",
+    "autoVoidTrade.MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

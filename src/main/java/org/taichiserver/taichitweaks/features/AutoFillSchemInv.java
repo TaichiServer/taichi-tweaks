@@ -20,7 +20,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.taichiserver.taichitweaks.config.Configs;
-import org.taichiserver.taichitweaks.util.IContainerProcessor;
+import org.taichiserver.taichitweaks.util.container.IContainerProcessor;
 
 import java.util.List;
 

@@ -58,6 +58,15 @@ public class Configs implements IConfigHandler {
         );
     }
 
+    public static class Renders {
+        public static final ConfigBooleanHotkeyed OVERLAY_LIGHTNING_ROD_RANGE = new ConfigBooleanHotkeyed("overlayLightningRodRange", false, "", "");
+        public static final ConfigColor OVERLAY_LIGHTNING_ROD_COLOR = new ConfigColor("overlayLightningRodColor", "#302050D0", "");
+        public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+                OVERLAY_LIGHTNING_ROD_RANGE,
+                OVERLAY_LIGHTNING_ROD_COLOR
+        );
+    }
+
 
     public static class Fixes {
         public static ConfigBoolean GAMMA_OVERRIDE_FIX = new ConfigBoolean("gammaOverrideFix", true, "Fixes gamma override not applying when starting the game");
@@ -70,41 +79,37 @@ public class Configs implements IConfigHandler {
     public static class Disables {
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                //DISABLE_ENTITY_COLLISIONS
         );
     }
 
 
-    public static void loadFromFile()
-    {
+    public static void loadFromFile() {
         File configFile = new File(FileUtils.getConfigDirectory(), CONFIG_FILE_NAME);
 
-        if (configFile.exists() && configFile.isFile() && configFile.canRead())
-        {
+        if (configFile.exists() && configFile.isFile() && configFile.canRead()) {
             JsonElement element = JsonUtils.parseJsonFile(configFile);
 
-            if (element != null && element.isJsonObject())
-            {
+            if (element != null && element.isJsonObject()) {
                 JsonObject root = element.getAsJsonObject();
 
                 ConfigUtils.readConfigBase(root, "Generic", Configs.Generic.OPTIONS);
                 ConfigUtils.readConfigBase(root, "Hotkey", Configs.Hotkeys.OPTIONS);
+                ConfigUtils.readConfigBase(root, "Renders", Configs.Renders.OPTIONS);
                 ConfigUtils.readConfigBase(root, "Fixes", Configs.Fixes.OPTIONS);
                 ConfigUtils.readConfigBase(root, "Disables", Configs.Disables.OPTIONS);
             }
         }
     }
 
-    public static void saveToFile()
-    {
+    public static void saveToFile() {
         File dir = FileUtils.getConfigDirectory();
 
-        if ((dir.exists() && dir.isDirectory()) || dir.mkdirs())
-        {
+        if ((dir.exists() && dir.isDirectory()) || dir.mkdirs()) {
             JsonObject root = new JsonObject();
 
             ConfigUtils.writeConfigBase(root, "Generic", Configs.Generic.OPTIONS);
             ConfigUtils.writeConfigBase(root, "Hotkey", Configs.Hotkeys.OPTIONS);
+            ConfigUtils.writeConfigBase(root, "Renders", Configs.Renders.OPTIONS);
             ConfigUtils.writeConfigBase(root, "Fixes", Configs.Fixes.OPTIONS);
             ConfigUtils.writeConfigBase(root, "Disables", Configs.Disables.OPTIONS);
 
@@ -116,14 +121,12 @@ public class Configs implements IConfigHandler {
     }
 
     @Override
-    public void load()
-    {
+    public void load() {
         loadFromFile();
     }
 
     @Override
-    public void save()
-    {
+    public void save() {
         saveToFile();
     }
 }
