@@ -26,7 +26,7 @@ public class Configs implements IConfigHandler {
         public static final ConfigBooleanHotkeyed AUTOFILL_SCHEMATIC_INVENTORY = new ConfigBooleanHotkeyed("autoFillSchematicInventory", false, "", "autoFillSchematicInventory");
         public static final ConfigBooleanHotkeyed AUTO_VOID_TRADE = new ConfigBooleanHotkeyed("autoVoidTrade", false, "", "autoVoidTrade");
         public static final ConfigInteger AUTO_VOID_TRADE_WAIT_TICK = new ConfigInteger("autoVoidTradeWaitTick", 10, 0, 100, "autoVoidTradeWaitTick");
-        public static final ConfigBooleanHotkeyed SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK = new ConfigBooleanHotkeyed("schematicBlockPlacementRestrictionSmartCheck", false, "", "");
+        public static final ConfigBooleanHotkeyed SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK = new ConfigBooleanHotkeyed("schematicBlockPlacementRestrictionSmartCheck", false, "", "schematicBlockPlacementRestrictionSmartCheck");
         public static final ConfigString SNAPAIM_ANGLE1 = new ConfigString("snapAim_Angle1", "0.0, 0.0", "Snap Aim Angle (1)");
         public static final ConfigString SNAPAIM_ANGLE2 = new ConfigString("snapAim_Angle2", "0.0, 0.0", "Snap Aim Angle (2)");
         public static final ConfigString SNAPAIM_ANGLE3 = new ConfigString("snapAim_Angle3", "0.0, 0.0", "Snap Aim Angle (3)");
@@ -37,6 +37,7 @@ public class Configs implements IConfigHandler {
 //                AUTOCOLLECT_SELECTIVE_LIST,
                 AUTOFILL_SCHEMATIC_INVENTORY,
                 AUTO_VOID_TRADE,
+                AUTO_VOID_TRADE_WAIT_TICK,
                 SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK,
                 SNAPAIM_ANGLE1,
                 SNAPAIM_ANGLE2,
@@ -72,7 +73,7 @@ public class Configs implements IConfigHandler {
 
 
     public static class Fixes {
-        public static ConfigBoolean GAMMA_OVERRIDE_FIX = new ConfigBoolean("gammaOverrideFix", true, "Fixes gamma override not applying when starting the game");
+        public static ConfigBoolean GAMMA_OVERRIDE_FIX = new ConfigBoolean("gammaOverrideFix", false, "Fixes gamma override not applying when starting the game");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 GAMMA_OVERRIDE_FIX
