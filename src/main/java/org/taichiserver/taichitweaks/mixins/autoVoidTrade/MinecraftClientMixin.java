@@ -19,8 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.taichiserver.taichitweaks.config.Configs;
 import org.taichiserver.taichitweaks.features.AutoVoidTrade;
 
-import java.util.Objects;
-
 @Mixin(MinecraftClient.class)
 public abstract class MinecraftClientMixin {
     @Shadow @Nullable public ClientPlayerEntity player;

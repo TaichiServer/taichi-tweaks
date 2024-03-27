@@ -23,12 +23,4 @@ public class ItemTypeEquals {
                 item.equals(Items.WHITE_SHULKER_BOX) ||
                 item.equals(Items.YELLOW_SHULKER_BOX);
     }
-    public static boolean isHoe(Item item){
-        return item.equals(Items.DIAMOND_HOE) ||
-                item.equals(Items.NETHERITE_HOE) ||
-                item.equals(Items.IRON_HOE) ||
-                item.equals(Items.GOLDEN_HOE) ||
-                item.equals(Items.WOODEN_HOE) ||
-                item.equals(Items.STONE_HOE);
-    }
 }

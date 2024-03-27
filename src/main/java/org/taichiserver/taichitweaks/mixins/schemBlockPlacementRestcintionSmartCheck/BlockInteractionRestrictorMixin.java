@@ -1,9 +1,12 @@
 package org.taichiserver.taichitweaks.mixins.schemBlockPlacementRestcintionSmartCheck;
 
 import me.fallenbreath.tweakermore.impl.features.schematicProPlace.restrict.BlockInteractionRestrictor;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,8 +23,14 @@ public class BlockInteractionRestrictorMixin {
         if (cir.getReturnValue().equals(BlockInteractionRestrictor.Result.good())) return;
 
         Item mainHandItem = player.getMainHandStack().getItem();
+        Item offHandItem = player.getOffHandStack().getItem();
 
-        if( Blocks.DIRT.equals(worldState.getBlock()) && Blocks.FARMLAND.equals(schematicState.getBlock()) && ItemTypeEquals.isHoe(mainHandItem)) {
+        Block worldBlock = worldState.getBlock();
+        Block schemBlock = schematicState.getBlock();
+
+        if ( Blocks.DIRT.equals(worldBlock) && Blocks.FARMLAND.equals(schemBlock) && mainHandItem instanceof HoeItem) {
+            cir.setReturnValue(BlockInteractionRestrictor.Result.good());
+        } else if ( Blocks.FARMLAND.equals(worldBlock) && Blocks.FARMLAND.equals(schemBlock) && offHandItem instanceof AliasedBlockItem) {
             cir.setReturnValue(BlockInteractionRestrictor.Result.good());
         }
     }
