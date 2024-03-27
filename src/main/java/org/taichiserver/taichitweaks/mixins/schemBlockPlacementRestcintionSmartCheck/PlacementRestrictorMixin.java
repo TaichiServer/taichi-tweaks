@@ -18,8 +18,6 @@ public abstract class PlacementRestrictorMixin {
 
         Block schematicBlock = schematicState.getBlock();
         Block blockToPlace = stateToPlace.getBlock();
-        System.out.println(schematicBlock);
-        System.out.println(blockToPlace);
         if (schematicBlock == Blocks.FARMLAND && blockToPlace == Blocks.DIRT) {
             cir.setReturnValue(true);
         }

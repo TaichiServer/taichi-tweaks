@@ -4,6 +4,7 @@
   "package": "org.taichiserver.taichitweaks.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin"
   ],
   "client": [
     "ContainerMixin",
