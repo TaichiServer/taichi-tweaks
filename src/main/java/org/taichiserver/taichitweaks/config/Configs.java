@@ -25,6 +25,7 @@ public class Configs implements IConfigHandler {
         public static final ConfigString AUTOCOLLECT_SELECTIVE_LIST = new ConfigString("autoCollectSelectiveList", "", "autoCollectMaterialListItem[Tweakermore] selective");
         public static final ConfigBooleanHotkeyed AUTOFILL_SCHEMATIC_INVENTORY = new ConfigBooleanHotkeyed("autoFillSchematicInventory", false, "", "");
         public static final ConfigBooleanHotkeyed AUTO_VOID_TRADE = new ConfigBooleanHotkeyed("autoVoidTrade", false, "", "");
+        public static final ConfigBooleanHotkeyed SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK = new ConfigBooleanHotkeyed("schematicBlockPlacementRestrictionSmartCheck", false, "", "");
         public static final ConfigString SNAPAIM_ANGLE1 = new ConfigString("snapAim_Angle1", "0.0, 0.0", "Snap Aim Angle (1)");
         public static final ConfigString SNAPAIM_ANGLE2 = new ConfigString("snapAim_Angle2", "0.0, 0.0", "Snap Aim Angle (2)");
         public static final ConfigString SNAPAIM_ANGLE3 = new ConfigString("snapAim_Angle3", "0.0, 0.0", "Snap Aim Angle (3)");
@@ -35,6 +36,7 @@ public class Configs implements IConfigHandler {
                 AUTOCOLLECT_SELECTIVE_LIST,
                 AUTOFILL_SCHEMATIC_INVENTORY,
                 AUTO_VOID_TRADE,
+                SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK,
                 SNAPAIM_ANGLE1,
                 SNAPAIM_ANGLE2,
                 SNAPAIM_ANGLE3,
@@ -62,8 +64,8 @@ public class Configs implements IConfigHandler {
         public static final ConfigBooleanHotkeyed OVERLAY_LIGHTNING_ROD_RANGE = new ConfigBooleanHotkeyed("overlayLightningRodRange", false, "", "");
         public static final ConfigColor OVERLAY_LIGHTNING_ROD_COLOR = new ConfigColor("overlayLightningRodColor", "#302050D0", "");
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                OVERLAY_LIGHTNING_ROD_RANGE,
-                OVERLAY_LIGHTNING_ROD_COLOR
+                //OVERLAY_LIGHTNING_ROD_RANGE,
+                //OVERLAY_LIGHTNING_ROD_COLOR
         );
     }
 

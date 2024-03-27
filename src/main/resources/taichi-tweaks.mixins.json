@@ -9,7 +9,9 @@
     "ContainerMixin",
     "autoVoidTrade.ClientPlayNetworkHandlerMixin",
     "autoVoidTrade.MerchantScreenHandlerMixin",
-    "autoVoidTrade.MinecraftClientMixin"
+    "autoVoidTrade.MinecraftClientMixin",
+    "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
+    "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin"
   ],
   "injectors": {
     "defaultRequire": 1
