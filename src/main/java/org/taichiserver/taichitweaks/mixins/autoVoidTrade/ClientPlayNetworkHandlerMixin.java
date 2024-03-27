@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
+import org.taichiserver.taichitweaks.config.Configs;
 import org.taichiserver.taichitweaks.features.AutoVoidTrade;
 
 @Restriction(require = @Condition(ModIds.itemscroller))
@@ -27,6 +28,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
             )
     )
     private void onSetTradeOffers(CallbackInfo ci) {
+        if (!Configs.Generic.AUTO_VOID_TRADE.getBooleanValue()) return;
         Screen screen = client.currentScreen;
         if (screen instanceof MerchantScreen) {
             AutoVoidTrade.isOpeningScreen = true;

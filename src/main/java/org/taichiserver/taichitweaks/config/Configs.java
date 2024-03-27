@@ -23,8 +23,9 @@ public class Configs implements IConfigHandler {
     public static class Generic {
         public static final ConfigBooleanHotkeyed AUTOCOLLECT_SELECTIVE = new ConfigBooleanHotkeyed("autoCollectSelective", false, "", "autoCollectMaterialListItem[Tweakermore] selective");
         public static final ConfigString AUTOCOLLECT_SELECTIVE_LIST = new ConfigString("autoCollectSelectiveList", "", "autoCollectMaterialListItem[Tweakermore] selective");
-        public static final ConfigBooleanHotkeyed AUTOFILL_SCHEMATIC_INVENTORY = new ConfigBooleanHotkeyed("autoFillSchematicInventory", false, "", "");
-        public static final ConfigBooleanHotkeyed AUTO_VOID_TRADE = new ConfigBooleanHotkeyed("autoVoidTrade", false, "", "");
+        public static final ConfigBooleanHotkeyed AUTOFILL_SCHEMATIC_INVENTORY = new ConfigBooleanHotkeyed("autoFillSchematicInventory", false, "", "autoFillSchematicInventory");
+        public static final ConfigBooleanHotkeyed AUTO_VOID_TRADE = new ConfigBooleanHotkeyed("autoVoidTrade", false, "", "autoVoidTrade");
+        public static final ConfigInteger AUTO_VOID_TRADE_WAIT_TICK = new ConfigInteger("autoVoidTradeWaitTick", 10, 0, 100, "autoVoidTradeWaitTick");
         public static final ConfigBooleanHotkeyed SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK = new ConfigBooleanHotkeyed("schematicBlockPlacementRestrictionSmartCheck", false, "", "");
         public static final ConfigString SNAPAIM_ANGLE1 = new ConfigString("snapAim_Angle1", "0.0, 0.0", "Snap Aim Angle (1)");
         public static final ConfigString SNAPAIM_ANGLE2 = new ConfigString("snapAim_Angle2", "0.0, 0.0", "Snap Aim Angle (2)");
@@ -32,8 +33,8 @@ public class Configs implements IConfigHandler {
         public static final ConfigString SNAPAIM_ANGLE4 = new ConfigString("snapAim_Angle4", "0.0, 0.0", "Snap Aim Angle (4)");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                AUTOCOLLECT_SELECTIVE,
-                AUTOCOLLECT_SELECTIVE_LIST,
+//                AUTOCOLLECT_SELECTIVE,
+//                AUTOCOLLECT_SELECTIVE_LIST,
                 AUTOFILL_SCHEMATIC_INVENTORY,
                 AUTO_VOID_TRADE,
                 SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK,

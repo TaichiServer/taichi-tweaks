@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.taichiserver.taichitweaks.config.Configs;
 import org.taichiserver.taichitweaks.features.AutoVoidTrade;
 
 import java.util.Objects;
@@ -32,6 +33,8 @@ public abstract class MinecraftClientMixin {
                 MerchantAutoFavoritesTrader.doAutoTrade(mc);
                 Screen screen = mc.currentScreen;
                 if (screen instanceof MerchantScreen){
+                    AutoVoidTrade.preTick++;
+                    if(Configs.Generic.AUTO_VOID_TRADE_WAIT_TICK.getIntegerValue() >= AutoVoidTrade.preTick) return;
                     MerchantScreenHandler screenHandler = ((MerchantScreen) screen).getScreenHandler();
                     if (!VillagerDataStorage.getInstance().getFavoritesForCurrentVillager(screenHandler).favorites.isEmpty()) {
                     	InventoryUtils.villagerTradeEverythingPossibleWithAllFavoritedTrades();
@@ -41,7 +44,12 @@ public abstract class MinecraftClientMixin {
                     }
                     mc.player.closeHandledScreen();
                 }
+            } else {
+                return;
             }
+        } else {
+            return;
         }
+        AutoVoidTrade.preTick = 0;
     }
 }
