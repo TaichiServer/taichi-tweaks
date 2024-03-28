@@ -4,7 +4,6 @@
   "package": "org.taichiserver.taichitweaks.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin"
   ],
   "client": [
     "ContainerMixin",
@@ -12,7 +11,9 @@
     "autoVoidTrade.MerchantScreenHandlerMixin",
     "autoVoidTrade.MinecraftClientMixin",
     "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
-    "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin"
+    "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
+    "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
+    "disableMassCraftPlayerInventory.KeybindCallbacksMixin"
   ],
   "injectors": {
     "defaultRequire": 1

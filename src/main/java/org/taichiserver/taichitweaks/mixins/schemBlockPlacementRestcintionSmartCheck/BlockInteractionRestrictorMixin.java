@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.taichiserver.taichitweaks.config.Configs;
-import org.taichiserver.taichitweaks.util.items.ItemTypeEquals;
 
 @Mixin(BlockInteractionRestrictor.class)
 public class BlockInteractionRestrictorMixin {

@@ -63,8 +63,8 @@ public class Configs implements IConfigHandler {
     }
 
     public static class Renders {
-        public static final ConfigBooleanHotkeyed OVERLAY_LIGHTNING_ROD_RANGE = new ConfigBooleanHotkeyed("overlayLightningRodRange", false, "", "");
-        public static final ConfigColor OVERLAY_LIGHTNING_ROD_COLOR = new ConfigColor("overlayLightningRodColor", "#302050D0", "");
+        public static final ConfigBooleanHotkeyed OVERLAY_LIGHTNING_ROD_RANGE = new ConfigBooleanHotkeyed("overlayLightningRodRange", false, "", "overlayLightningRodRange");
+        public static final ConfigColor OVERLAY_LIGHTNING_ROD_COLOR = new ConfigColor("overlayLightningRodColor", "#302050D0", "overlayLightningRodColor");
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 //OVERLAY_LIGHTNING_ROD_RANGE,
                 //OVERLAY_LIGHTNING_ROD_COLOR
@@ -73,7 +73,7 @@ public class Configs implements IConfigHandler {
 
 
     public static class Fixes {
-        public static ConfigBoolean GAMMA_OVERRIDE_FIX = new ConfigBoolean("gammaOverrideFix", false, "Fixes gamma override not applying when starting the game");
+        public static ConfigBooleanHotkeyed GAMMA_OVERRIDE_FIX = new ConfigBooleanHotkeyed("gammaOverrideFix", false, "", "Fixes gamma override not applying when starting the game");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 GAMMA_OVERRIDE_FIX
@@ -82,7 +82,10 @@ public class Configs implements IConfigHandler {
 
     public static class Disables {
 
+        public static final ConfigBooleanHotkeyed DISABLE_MASSCRAFT_PLAYER_INVENTORY = new ConfigBooleanHotkeyed("disableMassCraftPlayerInventory", false, "", "disableMassCraftPlayerInventory");
+
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+                DISABLE_MASSCRAFT_PLAYER_INVENTORY
         );
     }
 

@@ -28,3 +28,5 @@ masa mods addition made for [Taichi SMP](https://discord.gg/6U6Y8c7HQ2).
 ### gammaOverrideFix
 
 ## Disables
+
+### disableMassCraftPlayerInventory

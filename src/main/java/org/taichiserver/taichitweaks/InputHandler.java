@@ -1,13 +1,14 @@
 package org.taichiserver.taichitweaks;
 
-import java.util.List;
-import com.google.common.collect.ImmutableList;
+import fi.dy.masa.malilib.config.IConfigBase;
+import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
 import fi.dy.masa.malilib.hotkeys.IHotkey;
 import fi.dy.masa.malilib.hotkeys.IKeybindManager;
 import fi.dy.masa.malilib.hotkeys.IKeybindProvider;
+import fi.dy.masa.malilib.hotkeys.IKeyboardInputHandler;
 import org.taichiserver.taichitweaks.config.Configs;
 
-public class InputHandler implements IKeybindProvider {
+public class InputHandler implements IKeybindProvider, IKeyboardInputHandler {
     private static final InputHandler INSTANCE = new InputHandler();
 
     private InputHandler() {
@@ -22,6 +23,21 @@ public class InputHandler implements IKeybindProvider {
     public void addKeysToMap(IKeybindManager manager) {
         for (IHotkey hotkey : Configs.Hotkeys.OPTIONS) {
             manager.addKeybindToMap(hotkey.getKeybind());
+        }
+        for (IConfigBase config : Configs.Generic.OPTIONS) {
+            if(config instanceof ConfigBooleanHotkeyed hotkey) {
+                manager.addKeybindToMap(hotkey.getKeybind());
+            }
+        }
+        for (IConfigBase config : Configs.Fixes.OPTIONS) {
+            if(config instanceof ConfigBooleanHotkeyed hotkey) {
+                manager.addKeybindToMap(hotkey.getKeybind());
+            }
+        }
+        for (IConfigBase config : Configs.Disables.OPTIONS) {
+            if(config instanceof ConfigBooleanHotkeyed hotkey) {
+                manager.addKeybindToMap(hotkey.getKeybind());
+            }
         }
     }
 

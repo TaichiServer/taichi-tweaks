@@ -6,13 +6,12 @@ import fi.dy.masa.malilib.interfaces.IInitializationHandler;
 import org.taichiserver.taichitweaks.config.ConfigCallbacks;
 import org.taichiserver.taichitweaks.config.Configs;
 
-public class InitHandler implements IInitializationHandler
-{
+public class InitHandler implements IInitializationHandler {
     @Override
-    public void registerModHandlers()
-    {
+    public void registerModHandlers() {
         ConfigManager.getInstance().registerConfigHandler(TaichiTweaks.MOD_ID, new Configs());
         InputEventHandler.getKeybindManager().registerKeybindProvider(InputHandler.getInstance());
+        InputEventHandler.getInputManager().registerKeyboardInputHandler(InputHandler.getInstance());
 
         ConfigCallbacks.init();
     }

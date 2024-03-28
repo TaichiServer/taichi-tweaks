@@ -18,6 +18,9 @@
     "client": [
       "org.taichiserver.taichitweaks.TaichiTweaks"
     ],
+    "modmenu": [
+      "org.taichiserver.taichitweaks.ModMenuApiImpl"
+    ],
     "main": [
     ]
   },
