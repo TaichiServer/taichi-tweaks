@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,9 +28,23 @@ public class BlockInteractionRestrictorMixin {
         Block worldBlock = worldState.getBlock();
         Block schemBlock = schematicState.getBlock();
 
-        if ( Blocks.DIRT.equals(worldBlock) && Blocks.FARMLAND.equals(schemBlock) && mainHandItem instanceof HoeItem) {
+        if (
+                (Blocks.DIRT==worldBlock || Blocks.GRASS_BLOCK==worldBlock) &&
+                Blocks.FARMLAND.equals(schemBlock) &&
+                mainHandItem instanceof HoeItem
+        ) {
             cir.setReturnValue(BlockInteractionRestrictor.Result.good());
-        } else if ( Blocks.FARMLAND.equals(worldBlock) && Blocks.FARMLAND.equals(schemBlock) && offHandItem instanceof AliasedBlockItem) {
+        } else if (
+                Blocks.FARMLAND==worldBlock &&
+                Blocks.FARMLAND==schemBlock &&
+                offHandItem instanceof AliasedBlockItem
+        ) {
+            cir.setReturnValue(BlockInteractionRestrictor.Result.good());
+        } else if (
+                (Blocks.DIRT==worldBlock || Blocks.GRASS_BLOCK==worldBlock) &&
+                Blocks.DIRT_PATH==schemBlock &&
+                mainHandItem instanceof ShovelItem
+        ) {
             cir.setReturnValue(BlockInteractionRestrictor.Result.good());
         }
     }

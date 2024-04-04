@@ -10,10 +10,11 @@
     "autoVoidTrade.ClientPlayNetworkHandlerMixin",
     "autoVoidTrade.MerchantScreenHandlerMixin",
     "autoVoidTrade.MinecraftClientMixin",
+    "disableMassCraftPlayerInventory.KeybindCallbacksMixin",
     "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
-    "disableMassCraftPlayerInventory.KeybindCallbacksMixin"
+    "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
