@@ -4,7 +4,6 @@
   "package": "org.taichiserver.taichitweaks.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "selectiveBlockRenderingArea.RenderTweaksMixin"
   ],
   "client": [
     "ContainerMixin",
@@ -15,7 +14,8 @@
     "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin",
     "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
-    "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin"
+    "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
+    "selectiveBlockRenderingArea.RenderTweaksMixin"
   ],
   "injectors": {
     "defaultRequire": 1
