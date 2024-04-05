@@ -28,6 +28,8 @@ public class Configs implements IConfigHandler {
         public static final ConfigInteger AUTO_VOID_TRADE_WAIT_TICK = new ConfigInteger("autoVoidTradeWaitTick", 10, 0, 100, "autoVoidTradeWaitTick");
         public static final ConfigBooleanHotkeyed SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK = new ConfigBooleanHotkeyed("schematicBlockPlacementRestrictionSmartCheck", false, "", "schematicBlockPlacementRestrictionSmartCheck");
         public static final ConfigStringList SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_BLOCKS_MAP = new ConfigStringList("schematicBlockPlacementRestrictionBlocksMap", ImmutableList.of("minecraft:farmland, minecraft:dirt", "minecraft:water, minecraft:ice"), "schematicBlockPlacementRestrictionBlocksMap");
+        public static final ConfigBooleanHotkeyed SELECTIVE_BLOCKS_RENDERING_AREA = new ConfigBooleanHotkeyed("selectiveBlockRenderingArea", false, "", "areaBlockRendering");
+        public static final ConfigString SELECTIVE_BLOCKS_RENDERING_AREA_SELECTOR = new ConfigString("selectiveBlockRenderingAreaSelector", "", "areaBlockRenderingSelector");
         public static final ConfigString SNAPAIM_ANGLE1 = new ConfigString("snapAim_Angle1", "0.0, 0.0", "Snap Aim Angle (1)");
         public static final ConfigString SNAPAIM_ANGLE2 = new ConfigString("snapAim_Angle2", "0.0, 0.0", "Snap Aim Angle (2)");
         public static final ConfigString SNAPAIM_ANGLE3 = new ConfigString("snapAim_Angle3", "0.0, 0.0", "Snap Aim Angle (3)");
@@ -41,6 +43,8 @@ public class Configs implements IConfigHandler {
                 AUTO_VOID_TRADE_WAIT_TICK,
                 SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK,
                 SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_BLOCKS_MAP,
+                SELECTIVE_BLOCKS_RENDERING_AREA,
+                SELECTIVE_BLOCKS_RENDERING_AREA_SELECTOR,
                 SNAPAIM_ANGLE1,
                 SNAPAIM_ANGLE2,
                 SNAPAIM_ANGLE3,

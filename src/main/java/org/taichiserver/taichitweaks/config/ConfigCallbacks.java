@@ -1,5 +1,6 @@
 package org.taichiserver.taichitweaks.config;
 
+import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
@@ -10,14 +11,18 @@ import fi.dy.masa.malilib.hotkeys.KeyAction;
 import fi.dy.masa.malilib.interfaces.IValueChangeCallback;
 import net.minecraft.client.MinecraftClient;
 import org.taichiserver.taichitweaks.features.AimAngle;
+import org.taichiserver.taichitweaks.features.SelectiveBlockRenderingArea;
 
 public class ConfigCallbacks {
     public static void init() {
         HotkeyCallbacks hotkeyCallback = new HotkeyCallbacks();
+        ValueChangeCallbacks valueChangeCallback = new ValueChangeCallbacks();
 
         Configs.Generic.AUTOFILL_SCHEMATIC_INVENTORY.getKeybind().setCallback(hotkeyCallback);
         Configs.Generic.AUTO_VOID_TRADE.getKeybind().setCallback(hotkeyCallback);
         Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK.getKeybind().setCallback(hotkeyCallback);
+        Configs.Generic.SELECTIVE_BLOCKS_RENDERING_AREA.getKeybind().setCallback(hotkeyCallback);
+        Configs.Generic.SELECTIVE_BLOCKS_RENDERING_AREA_SELECTOR.setValueChangeCallback(valueChangeCallback);
 
         Configs.Hotkeys.OPEN_CONFIG_GUI.getKeybind().setCallback(hotkeyCallback);
         Configs.Hotkeys.SNAPAIM_ANGLE1_KEYBIND.getKeybind().setCallback(hotkeyCallback);
@@ -63,6 +68,10 @@ public class ConfigCallbacks {
             } else if (key == Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK.getKeybind()) {
                 valueChange(Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK);
                 return true;
+            } else if (key == Configs.Generic.SELECTIVE_BLOCKS_RENDERING_AREA.getKeybind()) {
+                valueChange(Configs.Generic.SELECTIVE_BLOCKS_RENDERING_AREA);
+                SelectiveBlockRenderingArea.onValueChanged();
+                return true;
             } else if (key == Configs.Fixes.GAMMA_OVERRIDE_FIX.getKeybind()) {
                 valueChange(Configs.Fixes.GAMMA_OVERRIDE_FIX);
                 return true;
@@ -74,29 +83,17 @@ public class ConfigCallbacks {
         }
     }
 
-    public static void valueChange(ConfigBoolean config) {
-        config.setBooleanValue(!config.getBooleanValue());
+    public static class ValueChangeCallbacks implements IValueChangeCallback {
+        @Override
+        public void onValueChanged(IConfigBase iConfigBase) {
+            if(iConfigBase == Configs.Generic.SELECTIVE_BLOCKS_RENDERING_AREA_SELECTOR) {
+                System.out.println( "onValueChanged() : SELECTIVE_BLOCKS_RENDERING_AREA_SELECTOR" );
+                SelectiveBlockRenderingArea.onValueChanged();
+            }
+        }
     }
 
-//    public static class RendererCallbacks {
-//        public static void onSpawnChunksRealToggled(IConfigBoolean config) {
-//            if (config.getBooleanValue()) {
-//
-//                BlockPos spawn = DataStorage.getInstance().getWorldSpawn();
-//                String green = GuiBase.TXT_GREEN;
-//                String rst = GuiBase.TXT_RST;
-//                String strStatus = green + StringUtils.translate("malilib.message.value.on") + rst;
-//                String strPos = String.format("x: %d, y: %d, z: %d", spawn.getX(), spawn.getY(), spawn.getZ());
-//                String message = StringUtils.translate("minihud.message.toggled_using_world_spawn", config.getPrettyName(), strStatus, strPos);
-//
-//                InfoUtils.printActionbarMessage(message);
-//            }
-//        }
-//
-//        public static void onBeaconRangeToggled(IConfigBoolean config) {
-//            if (config.getBooleanValue()) {
-//                OverlayRendererBeaconRange.INSTANCE.setNeedsUpdate();
-//            }
-//        }
-//    }
+    private static void valueChange(ConfigBoolean config) {
+        config.setBooleanValue(!config.getBooleanValue());
+    }
 }
