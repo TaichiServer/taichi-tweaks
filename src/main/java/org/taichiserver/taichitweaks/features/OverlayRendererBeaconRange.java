@@ -15,7 +15,7 @@ public class OverlayRendererBeaconRange extends BaseBlockRangeOverlay<BeaconBloc
 
     public OverlayRendererBeaconRange()
     {
-        super(Configs.Renders.OVERLAY_LIGHTNING_ROD_RANGE, BlockEntityType.BEACON, BeaconBlockEntity.class);
+        super(Configs.Generic.OVERLAY_LIGHTNING_ROD_RANGE, BlockEntityType.BEACON, BeaconBlockEntity.class);
     }
 
     @Override
@@ -48,6 +48,6 @@ public class OverlayRendererBeaconRange extends BaseBlockRangeOverlay<BeaconBloc
     }
 
     public static Color4f getColorForLevel(int level) {
-        return Configs.Renders.OVERLAY_LIGHTNING_ROD_COLOR.getColor();
+        return Configs.Generic.OVERLAY_LIGHTNING_ROD_COLOR.getColor();
     }
 }

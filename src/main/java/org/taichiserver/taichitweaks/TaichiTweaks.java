@@ -18,7 +18,7 @@ public class TaichiTweaks implements ClientModInitializer {
     public void onInitializeClient() {
         InitializationHandler.getInstance().registerInitializationHandler(new InitHandler());
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            if (Configs.Fixes.GAMMA_OVERRIDE_FIX.getBooleanValue()) {
+            if (Configs.Generic.GAMMA_OVERRIDE_FIX.getBooleanValue()) {
                 FeatureToggle.TWEAK_GAMMA_OVERRIDE.onValueChanged();
             }
         });

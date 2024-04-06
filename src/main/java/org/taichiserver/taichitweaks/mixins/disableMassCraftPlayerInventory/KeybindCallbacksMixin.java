@@ -15,7 +15,7 @@ import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 public class KeybindCallbacksMixin {
     @Inject(method = "onClientTick", at = @At("HEAD"), cancellable = true)
     private void onClientTick(MinecraftClient mc, CallbackInfo ci) {
-        if(!Configs.Disables.DISABLE_MASSCRAFT_PLAYER_INVENTORY.getBooleanValue()) return;
+        if(!Configs.Generic.DISABLE_MASSCRAFT_PLAYER_INVENTORY.getBooleanValue()) return;
         Screen screen = GuiUtils.getCurrentScreen();
         if(screen instanceof InventoryScreen) {
             ci.cancel();

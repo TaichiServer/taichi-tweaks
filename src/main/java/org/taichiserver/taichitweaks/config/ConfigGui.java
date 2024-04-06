@@ -16,7 +16,7 @@ public class ConfigGui extends GuiConfigsBase {
     public static ConfigGuiTab tab = ConfigGuiTab.GENERIC;
 
     public ConfigGui() {
-        super(10, 50, TaichiTweaks.MOD_ID, null, "TaichTweakroo", TaichiTweaks.VERSION);
+        super(10, 50, TaichiTweaks.MOD_ID, null, "Taich Tweaks", TaichiTweaks.VERSION);
     }
 
     @Override
@@ -66,14 +66,6 @@ public class ConfigGui extends GuiConfigsBase {
 
         if (tab == ConfigGuiTab.GENERIC) {
             return ConfigOptionWrapper.createFor(Configs.Generic.OPTIONS);
-        } else if (tab == ConfigGuiTab.HOTKEY) {
-            return ConfigOptionWrapper.createFor(Configs.Hotkeys.OPTIONS);
-        } else if (tab == ConfigGuiTab.FIXES) {
-            return ConfigOptionWrapper.createFor(Configs.Fixes.OPTIONS);
-        } else if (tab == ConfigGuiTab.DISABLES) {
-            return ConfigOptionWrapper.createFor(Configs.Disables.OPTIONS);
-        } else if (tab == ConfigGuiTab.RENDERS) {
-            return ConfigOptionWrapper.createFor(Configs.Renders.OPTIONS);
         }
 
         return Collections.emptyList();
@@ -94,25 +86,20 @@ public class ConfigGui extends GuiConfigsBase {
             ConfigGui.tab = this.tab;
 
 
-            /*if (this.tab == ConfigGuiTab.PACK_MIGRATE) {
+            if (this.tab == ConfigGuiTab.PACK_MIGRATE) {
                 GuiBase.openGui(new PackMigratorGui());
-            } else {*/
+            } else {
                 this.parent.reCreateListWidget(); // apply the new config width
                 this.parent.getListWidget().resetScrollbarPosition();
                 this.parent.initGui();
-            // }
+            }
         }
     }
 
     public enum ConfigGuiTab {
         GENERIC ("Generic"),
-        HOTKEY  ("HotKey"),
-        FIXES   ("Fix"),
-        DISABLES("Disable"),
 
-        RENDERS("Renders")/*,
-
-        PACK_MIGRATE("PackMigrate")*/;
+        PACK_MIGRATE("PackMigrate");
 
         private final String translationKey;
 

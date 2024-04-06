@@ -17,22 +17,20 @@ masa mods addition made for [Taichi SMP](https://discord.gg/6U6Y8c7HQ2).
 
 ### schematicBlockPlacementRestrictionBlocksMap
 
-### selectiveBlockRenderingArea
+### selectiveEntityRendering
 
-### selectiveBlockRenderingAreaSelector
+### selectiveBlockRenderingListType
+
+### selectiveBlockRenderingWhiteList
+
+### selectiveBlockRenderingBlackList
 
 ### snapAim_Angle(1-4)
-
-## Hotkeys
 
 ### openConfigGui
 
 ### snapAim_AngleKeyBind(1-4)
 
-## Fixes
-
 ### gammaOverrideFix
-
-## Disables
 
 ### disableMassCraftPlayerInventory
