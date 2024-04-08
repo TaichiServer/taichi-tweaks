@@ -8,7 +8,8 @@ import org.taichiserver.taichitweaks.config.Configs;
 
 public class schematicBlockPlacementRestrictionBlocksMap {
     public static boolean checker(Block schematicBlock, Block blockToPlace){
-        return Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_BLOCKS_MAP.getStrings()
+        return schematicBlock == blockToPlace ||
+                Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_BLOCKS_MAP.getStrings()
                 .stream()
                 .map(x -> x.split("\s*,\s*"))
                 .map(x -> ImmutableList.of(
