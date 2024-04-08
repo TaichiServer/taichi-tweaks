@@ -15,6 +15,7 @@
     "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin",
     "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
+    "restrictionPlacementOnNetherPortalSides.PlacementTweaksMixin",
     "selectiveEntityRendering.WorldRendererMixin"
   ],
   "injectors": {
