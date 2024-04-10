@@ -16,7 +16,7 @@ public class ConfigGui extends GuiConfigsBase {
     public static ConfigGuiTab tab = ConfigGuiTab.GENERIC;
 
     public ConfigGui() {
-        super(10, 50, TaichiTweaks.MOD_ID, null, "Taich Tweaks", TaichiTweaks.VERSION);
+        super(10, 50, TaichiTweaks.MOD_ID, null, "Taichi Tweaks", TaichiTweaks.VERSION);
     }
 
     @Override

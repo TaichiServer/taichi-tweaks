@@ -6,13 +6,12 @@ import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
 import fi.dy.masa.malilib.gui.button.IButtonActionListener;
 import fi.dy.masa.malilib.gui.interfaces.ITextFieldListener;
-import fi.dy.masa.malilib.util.StringUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import org.jetbrains.annotations.Nullable;
+import org.taichiserver.taichitweaks.PackMigrator.PackMigrator;
 
-import java.awt.*;
-import java.util.Objects;
+import java.nio.file.Paths;
 
 
 public class PackMigratorGui extends GuiBase {
@@ -52,7 +51,8 @@ public class PackMigratorGui extends GuiBase {
         @Override
         public void actionPerformedWithButton(ButtonBase buttonBase, int i) {
             if (this.type == ButtonType.SUBMIT) {
-                System.out.println(TextFieldListener.INSTANCE_PATH);
+                PackMigrator thread = new PackMigrator(Paths.get(TextFieldListener.INSTANCE_PATH));
+                thread.start();
 
 //                PackManager modpack = new PackManager(TextFieldListener.URL);
 //                PackManager.packManagerThread thread = new PackManager.packManagerThread(modpack);
