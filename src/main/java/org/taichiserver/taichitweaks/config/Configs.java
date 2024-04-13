@@ -49,7 +49,8 @@ public class Configs implements IConfigHandler {
         public static ConfigBooleanHotkeyed GAMMA_OVERRIDE_FIX = new ConfigBooleanHotkeyed("gammaOverrideFix", false, "", "Fixes gamma override not applying when starting the game");
 
         public static final ConfigBooleanHotkeyed DISABLE_MASSCRAFT_PLAYER_INVENTORY = new ConfigBooleanHotkeyed("disableMassCraftPlayerInventory", false, "", "disableMassCraftPlayerInventory");
-        public static final ConfigBooleanHotkeyed DISABLE_PLACED_ON_PORTAL_SIDES = new ConfigBooleanHotkeyed("disablePlacedOnNetherPortalSides+", false, "", "disableMassCraftPlayerInventory");
+        public static final ConfigBooleanHotkeyed DISABLE_PLACED_ON_PORTAL_SIDES = new ConfigBooleanHotkeyed("disablePlacedOnNetherPortalSides+", false, "", "disablePlacedOnNetherPortalSides");
+        public static final ConfigBooleanHotkeyed ENHANCED_TOOL_SWITCH = new ConfigBooleanHotkeyed("enhancedToolSwitch", false, "", "enhancedToolSwitch");
 
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
@@ -77,7 +78,8 @@ public class Configs implements IConfigHandler {
                 //OVERLAY_LIGHTNING_ROD_COLOR,
                 GAMMA_OVERRIDE_FIX,
                 DISABLE_MASSCRAFT_PLAYER_INVENTORY,
-                DISABLE_PLACED_ON_PORTAL_SIDES
+                DISABLE_PLACED_ON_PORTAL_SIDES,
+                ENHANCED_TOOL_SWITCH
         );
     }
 

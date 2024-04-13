@@ -51,13 +51,8 @@ public class PackMigratorGui extends GuiBase {
         @Override
         public void actionPerformedWithButton(ButtonBase buttonBase, int i) {
             if (this.type == ButtonType.SUBMIT) {
-                PackMigrator thread = new PackMigrator(Paths.get(TextFieldListener.INSTANCE_PATH));
-                thread.start();
-
-//                PackManager modpack = new PackManager(TextFieldListener.URL);
-//                PackManager.packManagerThread thread = new PackManager.packManagerThread(modpack);
+//                PackMigrator thread = new PackMigrator(Paths.get(TextFieldListener.INSTANCE_PATH));
 //                thread.start();
-                return;
             }
         }
 

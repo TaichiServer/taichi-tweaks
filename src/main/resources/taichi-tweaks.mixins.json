@@ -11,12 +11,13 @@
     "autoVoidTrade.MerchantScreenHandlerMixin",
     "autoVoidTrade.MinecraftClientMixin",
     "disableMassCraftPlayerInventory.KeybindCallbacksMixin",
+    "restrictionPlacementOnNetherPortalSides.PlacementTweaksMixin",
     "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin",
     "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
-    "restrictionPlacementOnNetherPortalSides.PlacementTweaksMixin",
-    "selectiveEntityRendering.WorldRendererMixin"
+    "selectiveEntityRendering.WorldRendererMixin",
+    "enhancedToolSwitch.InventoryUtilsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
