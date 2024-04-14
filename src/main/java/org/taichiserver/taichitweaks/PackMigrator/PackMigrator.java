@@ -75,9 +75,6 @@ public class PackMigrator extends Thread {
                 }
             }
         }
-
-        //System.out.println(modFiles);
-        //unzip(new File(""));
     }
 
     class Mod {
@@ -136,6 +133,7 @@ public class PackMigrator extends Thread {
             Path fabric_mod_json = cachePath.resolve("fabric.mod.json");
             JsonNode json = objectMapper.readTree(fabric_mod_json.toFile());
             Mod mod = new Mod(modFile.toPath(), json);
+            if(mod.getPath() == null || mod.getId() == null) continue;
             modsList.add(mod);
 
             cacheFile.delete();

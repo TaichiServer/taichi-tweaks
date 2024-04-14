@@ -47,9 +47,9 @@ dependencies {
     modImplementation 'com.github.Fallen-Breath:conditional-mixin:v0.4.1'
     modImplementation files('tmp/itemscroller-fabric-1.20.1-craftfix-1.2.7.jar')
 
-    implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:2.13.0")
+    include(implementation("com.fasterxml.jackson.core:jackson-core:2.13.0"))
+    include(implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0"))
+    include(implementation("com.fasterxml.jackson.core:jackson-annotations:2.13.0"))
 }
 
 processResources {
