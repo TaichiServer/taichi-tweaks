@@ -43,8 +43,8 @@ public class PackMigratorGui extends GuiBase {
         y += 40;
 
         ButtonListenerChangeMenu.ButtonType buttonType = ButtonListenerChangeMenu.ButtonType.SUBMIT;
-        ButtonGeneric button = new ButtonGeneric(x, y, 100, 20, buttonType.getDisplayName());
-        this.addButton(button, new ButtonListenerChangeMenu(buttonType, this));
+        ButtonGeneric button = new ButtonGeneric(x+50, y, 300, 20, buttonType.getDisplayName());
+        this.addButton(button, new ButtonListenerChangeMenu(button, buttonType, this));
 
         y += 20;
 
@@ -71,17 +71,20 @@ public class PackMigratorGui extends GuiBase {
     }
 
     public static class ButtonListenerChangeMenu implements IButtonActionListener {
+        private final ButtonGeneric button;
         private final ButtonType type;
         @Nullable
         private final Screen parent;
-        public ButtonListenerChangeMenu(ButtonType type, @Nullable Screen parent) {
+        public ButtonListenerChangeMenu(ButtonGeneric button, ButtonType type, @Nullable Screen parent) {
+            this.button = button;
             this.type = type;
             this.parent = parent;
         }
         @Override
         public void actionPerformedWithButton(ButtonBase buttonBase, int i) {
             if (this.type == ButtonType.SUBMIT) {
-                PackMigrator thread = new PackMigrator(Paths.get(TextFieldListener.INSTANCE_PATH));
+                button.setEnabled(false);
+                PackMigrator thread = new PackMigrator(button, Paths.get(TextFieldListener.INSTANCE_PATH));
                 thread.start();
             }
         }

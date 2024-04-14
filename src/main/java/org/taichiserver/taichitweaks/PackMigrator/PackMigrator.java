@@ -1,49 +1,59 @@
 package org.taichiserver.taichitweaks.PackMigrator;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fi.dy.masa.malilib.gui.GuiBase;
+import fi.dy.masa.malilib.gui.button.ButtonGeneric;
+import net.minecraft.client.MinecraftClient;
 import org.taichiserver.taichitweaks.config.PackMigratorGui;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 public class PackMigrator extends Thread {
     private static PackMigrator Process;
     private Path nowInstancePath;
     private Path newInstancePath;
     private boolean processing;
-    public PackMigrator(Path path){
+    private ButtonGeneric button;
+    public PackMigrator(ButtonGeneric button, Path path){
+        this.button = button;
         this.nowInstancePath = Paths.get(".");
         this.newInstancePath = path;
         this.processing = false;
     }
     public void run(){
-        System.out.println("Get Order");
-        if( !Files.exists(newInstancePath) ) return;
-        if( !newInstancePath.toString().matches("^.+\\.minecraft$") ) return;
-        if( !(Process==null || !Process.isProcessing()) ) return;
-        System.out.println("Start Migrate:");
-        System.out.println(newInstancePath.toString());
-        this.processing = true;
-        Process = this;
         try {
-            mods();
-            config();
+            if( !(Process==null || !Process.isProcessing()) ){
+                button.setDisplayString("既にプロセスが起動中です");
+                Thread.sleep(2000);
+            } else if( !Files.exists(newInstancePath) ){
+                button.setDisplayString("このパスのフォルダーが見つかりませんでした");
+                Thread.sleep(2000);
+            } else if( !newInstancePath.toString().matches("^.+\\.minecraft$") ){
+                button.setDisplayString("このフォルダーは.minecraftではありません");
+                Thread.sleep(2000);
+            } else {
+                button.setDisplayString("Start...");
+                this.processing = true;
+                Process = this;
+                mods();
+                config();
+                this.processing = false;
+                button.setDisplayString(" [ Finish ] ");
+                Thread.sleep(3000);
+            }
+            button.setDisplayString("Submit");
+            button.setEnabled(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
-
-        System.out.println("Finish");
-        this.processing = false;
     }
 
     public boolean isProcessing() {

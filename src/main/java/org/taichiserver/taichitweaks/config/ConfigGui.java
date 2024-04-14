@@ -88,7 +88,9 @@ public class ConfigGui extends GuiConfigsBase {
 
 
             if(this.tab == ConfigGuiTab.PACK_MIGRATE) {
-                GuiBase.openGui(new PackMigratorGui());
+                PackMigratorGui gui = new PackMigratorGui();
+                gui.setParent(this.parent);
+                GuiBase.openGui(gui);
             } else {
                 this.parent.reCreateListWidget(); // apply the new config width
                 this.parent.getListWidget().resetScrollbarPosition();
