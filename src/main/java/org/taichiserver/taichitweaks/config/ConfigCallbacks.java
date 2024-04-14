@@ -73,6 +73,12 @@ public class ConfigCallbacks {
             } else if (key == Configs.Generic.DISABLE_MASSCRAFT_PLAYER_INVENTORY.getKeybind()) {
                 valueChange(Configs.Generic.DISABLE_MASSCRAFT_PLAYER_INVENTORY);
                 return true;
+            } else if (key == Configs.Generic.DISABLE_PLACED_ON_PORTAL_SIDES.getKeybind()) {
+                valueChange(Configs.Generic.DISABLE_PLACED_ON_PORTAL_SIDES);
+                return true;
+            } else if (key == Configs.Generic.ENHANCED_TOOL_SWITCH.getKeybind()) {
+                valueChange(Configs.Generic.ENHANCED_TOOL_SWITCH);
+                return true;
             }
             return false;
         }

@@ -21,9 +21,6 @@ public class ConfigGui extends GuiConfigsBase {
 
     @Override
     public void initGui() {
-
-        this.tab = ConfigGuiTab.GENERIC;
-
         super.initGui();
         this.clearOptions();
 
@@ -68,6 +65,8 @@ public class ConfigGui extends GuiConfigsBase {
 
         if (tab == ConfigGuiTab.GENERIC) {
             return ConfigOptionWrapper.createFor(Configs.Generic.OPTIONS);
+        } else if (tab == ConfigGuiTab.CONFIGS_HINT) {
+            return ConfigOptionWrapper.createFor(MasaConfigsHint.getOptions());
         }
 
         return Collections.emptyList();
@@ -88,9 +87,7 @@ public class ConfigGui extends GuiConfigsBase {
             ConfigGui.tab = this.tab;
 
 
-            if (this.tab == ConfigGuiTab.CONFIGS_HINT) {
-                GuiBase.openGui(new MasaConfigsHintGui());
-            } else if(this.tab == ConfigGuiTab.PACK_MIGRATE) {
+            if(this.tab == ConfigGuiTab.PACK_MIGRATE) {
                 GuiBase.openGui(new PackMigratorGui());
             } else {
                 this.parent.reCreateListWidget(); // apply the new config width
@@ -103,7 +100,6 @@ public class ConfigGui extends GuiConfigsBase {
     public enum ConfigGuiTab {
         GENERIC ("Generic"),
         CONFIGS_HINT("ConfigsHint"),
-
         PACK_MIGRATE("PackMigrate");
 
         private final String translationKey;

@@ -3,6 +3,8 @@ package org.taichiserver.taichitweaks.PackMigrator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.taichiserver.taichitweaks.config.PackMigratorGui;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -25,9 +27,12 @@ public class PackMigrator extends Thread {
         this.processing = false;
     }
     public void run(){
+        System.out.println("Get Order");
         if( !Files.exists(newInstancePath) ) return;
+        if( !newInstancePath.toString().matches("^.+\\.minecraft$") ) return;
         if( !(Process==null || !Process.isProcessing()) ) return;
-        System.out.println(newInstancePath);
+        System.out.println("Start Migrate:");
+        System.out.println(newInstancePath.toString());
         this.processing = true;
         Process = this;
         try {
@@ -37,7 +42,7 @@ public class PackMigrator extends Thread {
             throw new RuntimeException(e);
         }
 
-        //unzip.init("","");
+        System.out.println("Finish");
         this.processing = false;
     }
 
@@ -139,15 +144,10 @@ public class PackMigrator extends Thread {
     }
 
     public void config() throws IOException{
-        CopyConfig("options.txt");
-        CopyConfig("hotbar.nbt");
-        CopyConfig("config");
-        CopyConfig("schematics");
-        CopyConfig("screenshot");
-        CopyConfig("shaderpacks");
-        CopyConfig("saves");
-        CopyConfig("resourcepacks");
-        CopyConfig("replay_recordings");
+        for(Map.Entry<String, Boolean> entry : PackMigratorGui.CheckBoxListener.options.entrySet()) {
+            if(!entry.getValue()) continue;
+            CopyConfig(entry.getKey());
+        }
     }
     private void CopyConfig(String name) throws IOException {
         File nowFile = nowInstancePath.resolve(name).toFile();
