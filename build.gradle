@@ -39,13 +39,15 @@ dependencies {
 
     //modImplementation "maven.modrinth:jade:${project.jade_version}"
 
+    modImplementation 'com.github.Fallen-Breath:conditional-mixin:v0.4.1'
+
     modImplementation "maven.modrinth:malilib:${project.malilib_version}"
     modImplementation "maven.modrinth:tweakermore:${project.tweakermore_version}"
     modImplementation files('tmp/litematica-fabric-1.20.1-0.15.3.jar')
     modImplementation files('tmp/tweakfork-fabric-1.20.1-1.2.3.jar')
     modImplementation files('tmp/minihud-fabric-1.20.1-0.27.0.jar')
-    modImplementation 'com.github.Fallen-Breath:conditional-mixin:v0.4.1'
     modImplementation files('tmp/itemscroller-fabric-1.20.1-craftfix-1.2.7.jar')
+    modImplementation files('tmp/taichi-carpet-1.2.3.jar')
 
     include(implementation("com.fasterxml.jackson.core:jackson-core:2.13.0"))
     include(implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0"))

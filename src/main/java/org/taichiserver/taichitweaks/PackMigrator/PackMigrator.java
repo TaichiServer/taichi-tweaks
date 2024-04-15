@@ -2,9 +2,7 @@ package org.taichiserver.taichitweaks.PackMigrator;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fi.dy.masa.malilib.gui.GuiBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
-import net.minecraft.client.MinecraftClient;
 import org.taichiserver.taichitweaks.config.PackMigratorGui;
 
 import java.io.File;
