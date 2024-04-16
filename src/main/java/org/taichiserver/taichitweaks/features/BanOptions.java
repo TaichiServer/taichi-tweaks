@@ -1,10 +1,7 @@
 package org.taichiserver.taichitweaks.features;
 
-import taichiCarpet.client.TaichiCarpetClient;
-
 public class BanOptions {
     public static String checker(){
-        if(!TaichiCarpetClient.ConnectedServer) return null;
         if(fi.dy.masa.tweakeroo.config.Configs.Generic.FAST_LEFT_CLICK_COUNT.getIntegerValue() > 2) return "[Tweakeroo]: tweakFastLeftClick";
         if(fi.dy.masa.tweakeroo.config.Configs.Generic.FAST_RIGHT_CLICK_COUNT.getIntegerValue() > 2) return "[Tweakeroo]: tweakFastRightClick";
         if(fi.dy.masa.tweakeroo.config.FeatureToggle.TWEAK_FLEXIBLE_BLOCK_PLACEMENT.getBooleanValue()) return "[Tweakeroo]: tweakFlexibleBlockPlacement";
