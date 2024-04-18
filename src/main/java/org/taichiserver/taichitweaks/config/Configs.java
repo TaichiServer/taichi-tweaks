@@ -51,6 +51,8 @@ public class Configs implements IConfigHandler {
         public static final ConfigBooleanHotkeyed DISABLE_MASSCRAFT_PLAYER_INVENTORY = new ConfigBooleanHotkeyed("disableMassCraftPlayerInventory", false, "", "disableMassCraftPlayerInventory");
         public static final ConfigBooleanHotkeyed DISABLE_PLACED_ON_PORTAL_SIDES = new ConfigBooleanHotkeyed("disablePlacedOnNetherPortalSides+", false, "", "disablePlacedOnNetherPortalSides");
         public static final ConfigBooleanHotkeyed ENHANCED_TOOL_SWITCH = new ConfigBooleanHotkeyed("enhancedToolSwitch", false, "", "enhancedToolSwitch");
+        public static final ConfigBooleanHotkeyed SYNCMATICA_REMOVE_DISABLED = new ConfigBooleanHotkeyed("syncmaticaRemoveDisabled", false, "", "syncmaticaRemoveDisabled");
+        public static final ConfigBooleanHotkeyed SYNCMATICA_REMOVE_NEED_SHIFT = new ConfigBooleanHotkeyed("syncmaticaRemoveNeedShift", false, "", "syncmaticaRemoveNeedShift");
 
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
@@ -79,7 +81,9 @@ public class Configs implements IConfigHandler {
                 GAMMA_OVERRIDE_FIX,
                 DISABLE_MASSCRAFT_PLAYER_INVENTORY,
                 DISABLE_PLACED_ON_PORTAL_SIDES,
-                ENHANCED_TOOL_SWITCH
+                ENHANCED_TOOL_SWITCH,
+                SYNCMATICA_REMOVE_DISABLED,
+                SYNCMATICA_REMOVE_NEED_SHIFT
         );
     }
 

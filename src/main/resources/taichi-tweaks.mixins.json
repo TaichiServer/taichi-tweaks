@@ -18,7 +18,8 @@
     "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin",
     "schemBlockPlacementRestcintionSmartCheck.PlacementRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.SchematicBlockPickerMixin",
-    "selectiveEntityRendering.WorldRendererMixin"
+    "selectiveEntityRendering.WorldRendererMixin",
+    "syncmaticaRemove.ExchangeTargetMixin"
   ],
   "injectors": {
     "defaultRequire": 1

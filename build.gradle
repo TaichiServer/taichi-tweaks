@@ -43,6 +43,7 @@ dependencies {
 
     modImplementation "maven.modrinth:malilib:${project.malilib_version}"
     modImplementation "maven.modrinth:tweakermore:${project.tweakermore_version}"
+    modImplementation "maven.modrinth:syncmatica:${project.syncmatica_version}"
     modImplementation files('tmp/litematica-fabric-1.20.1-0.15.3.jar')
     modImplementation files('tmp/tweakfork-fabric-1.20.1-1.2.3.jar')
     modImplementation files('tmp/minihud-fabric-1.20.1-0.27.0.jar')

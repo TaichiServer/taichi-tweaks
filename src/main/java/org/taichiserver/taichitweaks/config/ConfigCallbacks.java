@@ -2,7 +2,10 @@ package org.taichiserver.taichitweaks.config;
 
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
+import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
+import fi.dy.masa.malilib.config.options.ConfigHotkey;
 import fi.dy.masa.malilib.gui.GuiBase;
+import fi.dy.masa.malilib.hotkeys.IHotkey;
 import fi.dy.masa.malilib.hotkeys.IHotkeyCallback;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
@@ -13,22 +16,30 @@ import org.taichiserver.taichitweaks.features.AimAngle;
 public class ConfigCallbacks {
     public static void init() {
         HotkeyCallbacks hotkeyCallback = new HotkeyCallbacks();
-        ValueChangeCallbacks valueChangeCallback = new ValueChangeCallbacks();
 
-        Configs.Generic.AUTOFILL_SCHEMATIC_INVENTORY.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.AUTO_VOID_TRADE.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SELECTIVE_ENTITY_RENDERING.getKeybind().setCallback(hotkeyCallback);
-
-        Configs.Generic.OPEN_CONFIG_GUI.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SNAPAIM_ANGLE1_KEYBIND.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SNAPAIM_ANGLE2_KEYBIND.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SNAPAIM_ANGLE3_KEYBIND.getKeybind().setCallback(hotkeyCallback);
-        Configs.Generic.SNAPAIM_ANGLE4_KEYBIND.getKeybind().setCallback(hotkeyCallback);
-
-        Configs.Generic.GAMMA_OVERRIDE_FIX.getKeybind().setCallback(hotkeyCallback);
-
-        Configs.Generic.DISABLE_MASSCRAFT_PLAYER_INVENTORY.getKeybind().setCallback(hotkeyCallback);
+        for (IConfigBase config : Configs.Generic.OPTIONS) {
+            if(
+                    config instanceof ConfigBooleanHotkeyed ||
+                    config instanceof ConfigHotkey
+            ) {
+                ((IHotkey) config).getKeybind().setCallback(hotkeyCallback);
+            }
+        }
+//
+//        Configs.Generic.AUTOFILL_SCHEMATIC_INVENTORY.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.AUTO_VOID_TRADE.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SCHEMATIC_BLOCK_PLACEMENT_RESTRICTION_SMART_CHECK.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SELECTIVE_ENTITY_RENDERING.getKeybind().setCallback(hotkeyCallback);
+//
+//        Configs.Generic.OPEN_CONFIG_GUI.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SNAPAIM_ANGLE1_KEYBIND.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SNAPAIM_ANGLE2_KEYBIND.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SNAPAIM_ANGLE3_KEYBIND.getKeybind().setCallback(hotkeyCallback);
+//        Configs.Generic.SNAPAIM_ANGLE4_KEYBIND.getKeybind().setCallback(hotkeyCallback);
+//
+//        Configs.Generic.GAMMA_OVERRIDE_FIX.getKeybind().setCallback(hotkeyCallback);
+//
+//        Configs.Generic.DISABLE_MASSCRAFT_PLAYER_INVENTORY.getKeybind().setCallback(hotkeyCallback);
 
 //        Configs.Generic.OVERLAY_LIGHTNING_ROD_COLOR.setValueChangeCallback((config) -> OverlayRendererBeaconRange.INSTANCE.setNeedsUpdate());
 //        Configs.Generic.OVERLAY_LIGHTNING_ROD_RANGE.setValueChangeCallback(RendererCallbacks::onBeaconRangeToggled);
@@ -78,6 +89,12 @@ public class ConfigCallbacks {
                 return true;
             } else if (key == Configs.Generic.ENHANCED_TOOL_SWITCH.getKeybind()) {
                 valueChange(Configs.Generic.ENHANCED_TOOL_SWITCH);
+                return true;
+            } else if (key == Configs.Generic.SYNCMATICA_REMOVE_DISABLED.getKeybind()) {
+                valueChange(Configs.Generic.SYNCMATICA_REMOVE_DISABLED);
+                return true;
+            } else if (key == Configs.Generic.SYNCMATICA_REMOVE_NEED_SHIFT.getKeybind()) {
+                valueChange(Configs.Generic.SYNCMATICA_REMOVE_NEED_SHIFT);
                 return true;
             }
             return false;
