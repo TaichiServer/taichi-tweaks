@@ -20,8 +20,7 @@ public class ExchangeTargetMixin {
         if(Configs.Generic.SYNCMATICA_REMOVE_DISABLED.getBooleanValue()){
             ci.cancel();
         } else if (Configs.Generic.SYNCMATICA_REMOVE_NEED_SHIFT.getBooleanValue()) {
-            if(!GuiBase.isShiftDown()) return;
-            ci.cancel();
+            if(!GuiBase.isShiftDown()) ci.cancel();
         }
     }
 }
