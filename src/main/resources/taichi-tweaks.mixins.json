@@ -13,6 +13,8 @@
     "banOptions.MinecraftClientMixin",
     "disableMassCraftPlayerInventory.KeybindCallbacksMixin",
     "enhancedToolSwitch.InventoryUtilsMixin",
+    "restrictionPlacementOnNetherPortalSides.ClientPlayInteractionManagerMixin",
+    "restrictionPlacementOnNetherPortalSides.IBellBlockMixin",
     "restrictionPlacementOnNetherPortalSides.PlacementTweaksMixin",
     "schemBlockPlacementRestcintionSmartCheck.BlockInteractionRestrictorMixin",
     "schemBlockPlacementRestcintionSmartCheck.LooseCaseCheckerMixin",
