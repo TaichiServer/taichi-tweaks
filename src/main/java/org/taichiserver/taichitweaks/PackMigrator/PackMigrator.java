@@ -177,13 +177,15 @@ public class PackMigrator extends Thread {
     }
     private void CopyDir(Path path1, Path path2) throws IOException{
         File[] folders1 = path1.toFile().listFiles();
-        for(File folder1: folders1){
-            String foder1name = folder1.toPath().getFileName().toString();
+        for(File folderfile1: folders1){
+            Path folder1 = folderfile1.toPath();
+            String foder1name = folder1.getFileName().toString();
             Path folder2 = path2.resolve(foder1name);
+            if( folderfile1.isDirectory() && !folder2.toFile().exists() ) { folder2.toFile().mkdir(); }
             try {
-                Files.copy(folder1.toPath(), folder2, StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(folder1, folder2, StandardCopyOption.REPLACE_EXISTING);
             } catch (DirectoryNotEmptyException e){
-                CopyDir(folder1.toPath(), folder2);
+                CopyDir(folder1, folder2);
             }
         }
     }

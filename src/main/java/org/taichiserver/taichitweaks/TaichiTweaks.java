@@ -11,7 +11,7 @@ import org.taichiserver.taichitweaks.config.Configs;
 public class TaichiTweaks implements ClientModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("TaichiTweaks");
     public static final String MOD_ID = "taichi-tweaks";
-    public static final String VERSION = "1.0.0-SNAPSHOT";
+    public static final String VERSION = "1.0.11";
 
 
     @Override
